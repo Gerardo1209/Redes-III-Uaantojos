@@ -291,6 +291,7 @@ router.post(
         }
         //Revisa que el cliente exista
         if ((await fileManager.cliente(body.idCliente)) == undefined) {
+          console.log("Hola")
           res.status(500).send({
             success: false,
             message: "El cliente al que se quiere asociar la venta no existe",

@@ -58,6 +58,7 @@ async function cliente(id) {
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
+    let clientes = JSON.parse(data);
     if (clientes.length == 0) return undefined;
     let cliente = clientes.find((clienteBuscar) => clienteBuscar.id == id);
     return cliente;
