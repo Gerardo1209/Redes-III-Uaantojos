@@ -21,8 +21,8 @@ router.post(
         return;
       }
       let body = req.body;
-      let file = fileManager.ruta + "\\data2\\cliente.json";
-      let fileVend = fileManager.ruta + "\\data1\\vendedor.json";
+      let file = fileManager.ruta + "/data2/cliente.json";
+      let fileVend = fileManager.ruta + "/data1/vendedor.json";
       //Comprobar que el archivo existe, si no lo crea vacio
       if (await fileManager.checkFileExist(file) && await fileManager.checkFileExist(fileVend)) {
         //Compureba que no haya vendedores con el correo
@@ -105,8 +105,8 @@ router.post(
         return;
       }
       let body = req.body;
-      let fileCte = fileManager.ruta + "\\data2\\cliente.json";
-      let file = fileManager.ruta + "\\data1\\vendedor.json";
+      let fileCte = fileManager.ruta + "/data2/cliente.json";
+      let file = fileManager.ruta + "/data1/vendedor.json";
       //Comprobar que el archivo existe, si no lo crea vacio
       if (await fileManager.checkFileExist(file) && await fileManager.checkFileExist(fileCte)) {
         //Comprueba que no haya clientes con el mismo correo
@@ -191,7 +191,7 @@ router.post(
         return;
       }
       let body = req.body;
-      let file = fileManager.ruta + "\\data2\\producto.json";
+      let file = fileManager.ruta + "/data2/producto.json";
       //Comprobar que el archivo existe, si no lo crea vacio
       if (await fileManager.checkFileExist(file)) {
         //Revisa que el vendedor exista
@@ -274,8 +274,8 @@ router.post(
         return;
       }
       let body = req.body;
-      let file = fileManager.ruta + "\\data1\\venta.json";
-      let fileDetalle = fileManager.ruta + "\\data1\\detalle.json";
+      let file = fileManager.ruta + "/data1/venta.json";
+      let fileDetalle = fileManager.ruta + "/data1/detalle.json";
       //Comprobar que el archivo existe, si no lo crea vacio
       if (
         (await fileManager.checkFileExist(file)) &&

@@ -17,7 +17,7 @@ router.delete(
               return;
             }
             let body = req.body;
-            let file = fileManager.ruta + "\\data2\\producto.json";
+            let file = fileManager.ruta + "/data2/producto.json";
             //Comprobar que el archivo existe, si no lo crea vacio
             if (await fileManager.checkFileExist(file)) {
               let data = await fs.readFile(file);
@@ -71,7 +71,7 @@ router.delete(
               return;
             }
             let body = req.body;
-            let file = fileManager.ruta + "\\data1\\venta.json";
+            let file = fileManager.ruta + "/data1/venta.json";
             //Comprobar que el archivo existe, si no lo crea vacio
             if (await fileManager.checkFileExist(file)) {
               let data = await fs.readFile(file);

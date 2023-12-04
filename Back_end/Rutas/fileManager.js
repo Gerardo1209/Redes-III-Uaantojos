@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
 const crypto = require("crypto");
-const ruta = __dirname + "\\..\\data";
+const ruta = __dirname + "/../data";
 const algorithm = "aes-256-ctr";
 let key = process.env.KEY;
 key = crypto.createHash("sha256").update(key).digest("base64").substr(0, 32);
@@ -43,7 +43,7 @@ async function checkFileExist(file) {
 
 //Consultas
 async function clientes() {
-  const file = ruta + "\\data2\\cliente.json";
+  const file = ruta + "/data2/cliente.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -54,7 +54,7 @@ async function clientes() {
   }
 }
 async function cliente(id) {
-  const file = ruta + "\\data2\\cliente.json";
+  const file = ruta + "/data2/cliente.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -66,7 +66,7 @@ async function cliente(id) {
   }
 }
 async function loginCliente(correo) {
-  const file = ruta + "\\data2\\cliente.json";
+  const file = ruta + "/data2/cliente.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -81,7 +81,7 @@ async function loginCliente(correo) {
   }
 }
 async function vendedores() {
-  const file = ruta + "\\data1\\vendedor.json";
+  const file = ruta + "/data1/vendedor.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -92,7 +92,7 @@ async function vendedores() {
   }
 }
 async function vendedor(id) {
-  const file = ruta + "\\data1\\vendedor.json";
+  const file = ruta + "/data1/vendedor.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -105,7 +105,7 @@ async function vendedor(id) {
   }
 }
 async function loginVendedor(correo) {
-  const file = ruta + "\\data1\\vendedor.json";
+  const file = ruta + "/data1/vendedor.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -120,7 +120,7 @@ async function loginVendedor(correo) {
   }
 }
 async function productos() {
-  const file = ruta + "\\data2\\producto.json";
+  const file = ruta + "/data2/producto.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -136,7 +136,7 @@ async function productos() {
   }
 }
 async function producto(id) {
-  const file = ruta + "\\data2\\producto.json";
+  const file = ruta + "/data2/producto.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -152,7 +152,7 @@ async function producto(id) {
 }
 
 async function productoVendedor(idVendedor) {
-  const file = ruta + "\\data2\\producto.json";
+  const file = ruta + "/data2/producto.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -168,7 +168,7 @@ async function productoVendedor(idVendedor) {
 }
 
 async function ventas() {
-  const file = ruta + "\\data1\\venta.json";
+  const file = ruta + "/data1/venta.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -179,7 +179,7 @@ async function ventas() {
   }
 }
 async function venta(id) {
-  const file = ruta + "\\data1\\venta.json";
+  const file = ruta + "/data1/venta.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -192,7 +192,7 @@ async function venta(id) {
   }
 }
 async function ventaCliente(idCliente) {
-  const file = ruta + "\\data1\\venta.json";
+  const file = ruta + "/data1/venta.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -212,7 +212,7 @@ async function ventaCliente(idCliente) {
   }
 }
 async function ventaVendedor(idVendedor) {
-  const file = ruta + "\\data1\\venta.json";
+  const file = ruta + "/data1/venta.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -232,7 +232,7 @@ async function ventaVendedor(idVendedor) {
   }
 }
 async function detalleVenta(id) {
-  const file = ruta + "\\data1\\detalle.json";
+  const file = ruta + "/data1/detalle.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -256,7 +256,7 @@ async function updateProducto(
   descripcion,
   baja = false
 ) {
-  const file = ruta + "\\data2\\producto.json";
+  const file = ruta + "/data2/producto.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -280,7 +280,7 @@ async function updateProducto(
   }
 }
 async function updateCliente(id, correo, contrasena, nombre, primape, segape) {
-  const file = ruta + "\\data2\\cliente.json";
+  const file = ruta + "/data2/cliente.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -313,7 +313,7 @@ async function updateVendedor(
   ubicacion,
   activo = false
 ) {
-  const file = ruta + "\\data1\\vendedor.json";
+  const file = ruta + "/data1/vendedor.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();
@@ -341,8 +341,8 @@ async function updateVendedor(
 }
 //bajas
 async function bajaVenta(id) {
-  const file = ruta + "\\data1\\venta.json";
-  const detalleFile = ruta + "\\data1\\detalle.json";
+  const file = ruta + "/data1/venta.json";
+  const detalleFile = ruta + "/data1/detalle.json";
   try {
     //Eliminar detalles
     let detalledata = await fs.readFile(detalleFile, "utf-8");
