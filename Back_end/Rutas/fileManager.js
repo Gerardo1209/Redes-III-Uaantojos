@@ -189,6 +189,8 @@ async function venta(id) {
     let venta = ventas.find((ventaBuscar) => ventaBuscar.id == id);
     let ven = await vendedor(venta.idVendedor);
     venta.nombreComercial = ven.nombreComercial;
+    let comp = await cliente(venta.idCliente);
+    venta.cliente = comp.nombre + " " + comp.primape + " " + comp.segape;
     return venta;
   } catch (error) {
     return undefined;
