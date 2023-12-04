@@ -187,6 +187,8 @@ async function venta(id) {
     let ventas = JSON.parse(data);
     if (ventas.length == 0) return undefined;
     let venta = ventas.find((ventaBuscar) => ventaBuscar.id == id);
+    let ven = await vendedor(venta.idVendedor);
+    venta.nombreComercial = ven.nombreComercial;
     return venta;
   } catch (error) {
     return undefined;
