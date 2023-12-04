@@ -242,6 +242,11 @@ async function detalleVenta(id) {
     let detalle = detalles.filter(
       (detalleBuscar) => detalleBuscar.idVenta == id
     );
+    for (let i = 0; i < detalles.length; i++) {
+      const element = detalles[i];
+      let prod = await producto(element.idProducto);
+      detalles[i].producto = prod.nombre;
+    }
     return detalle;
   } catch (error) {
     return [];
