@@ -24,7 +24,7 @@ router.delete(
               data = fileManager.decrypt(data).toString();
               let productos = JSON.parse(data);
               if (productos.length > 0) {
-                let producto = productos.find((prodcutoBuscar) => prodcutoBuscar.id == body.idProducto);
+                let producto = productos.find((productoBuscar) => productoBuscar.id == body.idProducto);
                 if(await fileManager.updateProducto(
                   producto.id, producto.nombre, 0, producto.precio, producto.descripcion, true
                 )){

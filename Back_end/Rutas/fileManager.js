@@ -142,8 +142,8 @@ async function producto(id) {
     data = decrypt(data).toString();
     let productos = JSON.parse(data);
     if (productos.length == 0) return undefined;
-    let producto = productos.find((prodcutoBuscar) => prodcutoBuscar.id == id);
-    let ven = await vendedor(prodcuto.idVendedor);
+    let producto = await productos.find((productoBuscar) => productoBuscar.id == id);
+    let ven = await vendedor(producto.idVendedor);
     producto.vendedor = ven.nombreComercial;
     return producto;
   } catch (error) {
@@ -158,10 +158,10 @@ async function productoVendedor(idVendedor) {
     data = decrypt(data).toString();
     let productos = JSON.parse(data);
     if (productos.length == 0) return [];
-    let prodcuto = await productos.filter(
-      (prodcutoBuscar) => prodcutoBuscar.idVendedor == idVendedor
+    let producto = await productos.filter(
+      (productoBuscar) => productoBuscar.idVendedor == idVendedor
     );
-    return prodcuto;
+    return producto;
   } catch (error) {
     return [];
   }
@@ -262,15 +262,15 @@ async function updateProducto(
     data = decrypt(data).toString();
     let productos = JSON.parse(data);
     if (productos.length == 0) return undefined;
-    let prodcuto = productos.find((prodcutoBuscar) => prodcutoBuscar.id == id);
-    let index = productos.indexOf(prodcuto);
+    let producto = productos.find((productoBuscar) => productoBuscar.id == id);
+    let index = productos.indexOf(producto);
     productos[index] = {
       id: id,
       nombre: nombre,
       cantidad: cantidad,
       precio: precio,
       descripcion: descripcion,
-      idVendedor: prodcuto.idVendedor,
+      idVendedor: producto.idVendedor,
       baja: baja,
     };
     await fs.writeFile(file, encrypt(Buffer.from(JSON.stringify(productos))));
