@@ -22,7 +22,7 @@ router.get('/vendedores', async (req, res) => {
             vendedores: sendVend
         })
     }else{
-        res.status(500).send({
+        res.status(200).send({
             success: false,
             message: "No hay vendedores"
         })
@@ -44,7 +44,7 @@ router.get('/vendedor/:idVendedor', async (req, res) => {
             vendedor: envVend
         })
     }else{
-        res.status(500).send({
+        res.status(200).send({
             success: false,
             message: "No existe el vendedor"
         })
@@ -59,7 +59,7 @@ router.get('/productos', async (req, res) => {
             productos: productos
         })
     }else{
-        res.status(500).send({
+        res.status(200).send({
             success: false,
             message: "No hay productos"
         })
@@ -74,7 +74,7 @@ router.get('/producto/:idProducto', async (req, res) => {
             producto: producto
         })
     }else{
-        res.status(500).send({
+        res.status(200).send({
             success: false,
             message: "No existe el producto"
         })
@@ -90,7 +90,7 @@ router.get('/vendedor/:idVendedor/productos', async (req, res) => {
             productos: productos
         })
     }else{
-        res.status(500).send({
+        res.status(200).send({
             success: false,
             message: "No hay productos"
         })
@@ -105,7 +105,7 @@ router.get('/cliente/:idCliente/ventas', async (req, res) => {
             ventas: ventas
         })
     }else{
-        res.status(500).send({
+        res.status(200).send({
             success: false,
             message: "No hay ventas"
         })
@@ -120,7 +120,7 @@ router.get('/vendedor/:idVendedor/ventas', async (req, res) => {
             ventas: ventas
         })
     }else{
-        res.status(500).send({
+        res.status(200).send({
             success: false,
             message: "No hay ventas"
         })
@@ -137,7 +137,7 @@ router.get('/venta/:idVenta', async (req, res) => {
             venta: venta
         })
     }else{
-        res.status(500).send({
+        res.status(200).send({
             success: false,
             message: "No hay detalles de la venta"
         })

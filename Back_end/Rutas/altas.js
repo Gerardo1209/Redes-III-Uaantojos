@@ -17,7 +17,7 @@ router.post(
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(400).json({ success: false, err: errors });
+        res.status(200).json({ success: false, err: errors });
         return;
       }
       let body = req.body;
@@ -32,7 +32,7 @@ router.post(
         if (vendedores.length > 0) {
           //Revisa que el correo no este repetido
           if (vendedores.find((vendedor) => vendedor.correo == body.correo)) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "El correo ya esta en uso",
             });
@@ -47,7 +47,7 @@ router.post(
         if (clientes.length > 0) {
           //Revisa que el correo no este repetido
           if (clientes.find((cliente) => cliente.correo == body.correo)) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "El correo ya esta en uso",
             });
@@ -73,13 +73,13 @@ router.post(
         await fs.writeFile(file, fileManager.encrypt(Buffer.from(JSON.stringify(clientes))));
         res.status(201).send({ success: true });
       } else {
-        res.status(500).send({
+        res.status(200).send({
           success: false,
           message: "Ha ocurrido un error al buscar el archivo",
         });
       }
     } catch (error) {
-      res.status(500).send({
+      res.status(200).send({
         success: false,
         message: error.message,
       });
@@ -96,12 +96,13 @@ router.post(
     body("nombre").notEmpty().isString(),
     body("primape").notEmpty().isString(),
     body("segape").notEmpty().isString(),
+    body("ubicacion").notEmpty().isString(),
   ],
   async (req, res) => {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(400).json({ success: false, err: errors });
+        res.status(200).json({ success: false, err: errors });
         return;
       }
       let body = req.body;
@@ -116,7 +117,7 @@ router.post(
         if (clientes.length > 0) {
           //Revisa que el correo no este repetido
           if (clientes.find((cliente) => cliente.correo == body.correo)) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "El correo ya esta en uso",
             });
@@ -131,7 +132,7 @@ router.post(
         if (vendedores.length > 0) {
           //Revisa que el correo no este repetido
           if (vendedores.find((vendedor) => vendedor.correo == body.correo)) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "El correo ya esta en uso",
             });
@@ -160,13 +161,13 @@ router.post(
         await fs.writeFile(file, fileManager.encrypt(Buffer.from(JSON.stringify(vendedores))));
         res.status(201).send({ success: true });
       } else {
-        res.status(500).send({
+        res.status(200).send({
           success: false,
           message: "Ha ocurrido un error al buscar el archivo",
         });
       }
     } catch (error) {
-      res.status(500).send({
+      res.status(200).send({
         success: false,
         message: error.message,
       });
@@ -187,7 +188,7 @@ router.post(
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(400).json({ success: false, err: errors });
+        res.status(200).json({ success: false, err: errors });
         return;
       }
       let body = req.body;
@@ -196,7 +197,7 @@ router.post(
       if (await fileManager.checkFileExist(file)) {
         //Revisa que el vendedor exista
         if ((await fileManager.vendedor(body.idVendedor)) == undefined) {
-          res.status(500).send({
+          res.status(200).send({
             success: false,
             message:
               "El vendedor al que se quiere asociar el producto no existe",
@@ -204,7 +205,7 @@ router.post(
           return;
         }
         if(body.cantidad < 0){
-            res.status(500).send({
+            res.status(200).send({
                 success: false,
                 message:
                   "La cantidad del producto no puede ser menor a cero",
@@ -238,13 +239,13 @@ router.post(
         await fs.writeFile(file, fileManager.encrypt(Buffer.from(JSON.stringify(productos))));
         res.status(201).send({ success: true });
       } else {
-        res.status(500).send({
+        res.status(200).send({
           success: false,
           message: "Ha ocurrido un error al buscar el archivo",
         });
       }
     } catch (error) {
-      res.status(500).send({
+      res.status(200).send({
         success: false,
         message: error.message,
       });
@@ -270,7 +271,7 @@ router.post(
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(400).json({ success: false, err: errors });
+        res.status(200).json({ success: false, err: errors });
         return;
       }
       let body = req.body;
@@ -283,7 +284,7 @@ router.post(
       ) {
         //Revisa que el vendedor exista
         if ((await fileManager.vendedor(body.idVendedor)) == undefined) {
-          res.status().send({
+          res.status(200).send({
             success: false,
             message: "El vendedor al que se quiere asociar la venta no existe",
           });
@@ -292,7 +293,7 @@ router.post(
         //Revisa que el cliente exista
         if ((await fileManager.cliente(body.idCliente)) == undefined) {
           console.log("Hola")
-          res.status(500).send({
+          res.status(200).send({
             success: false,
             message: "El cliente al que se quiere asociar la venta no existe",
           });
@@ -307,7 +308,7 @@ router.post(
           //Si no existe el producto
           if (cmpProducto == undefined) {
             check = false;
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "Uno o varios productos no existen",
             });
@@ -316,7 +317,7 @@ router.post(
           //Si el producto no esta relacionado con el vendedor
           if (cmpProducto.idVendedor != body.idVendedor) {
             check = false;
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message:
                 "Uno o varios productos no estan relacionados con el mismo vendedor",
@@ -325,7 +326,7 @@ router.post(
           }
           if (cmpProducto.cantidad < producto.cantidad) {
             check = false;
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message:
                 "Uno o varios productos tienen menos existencias que las que se desean comprar",
@@ -385,13 +386,13 @@ router.post(
         await fs.writeFile(fileDetalle, fileManager.encrypt(Buffer.from(JSON.stringify(detalles))));
         res.status(201).send({ success: true });
       } else {
-        res.status(500).send({
+        res.status(200).send({
           success: false,
           message: "Ha ocurrido un error al buscar el archivo",
         });
       }
     } catch (error) {
-      res.status(500).send({
+      res.status(200).send({
         success: false,
         message: error.message,
       });
@@ -407,14 +408,14 @@ async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ success: false, err: errors });
+      res.status(200).json({ success: false, err: errors });
       return;
     }
     let body = req.body;
     let cliente = await fileManager.loginCliente(body.correo)
     let vendedor = await fileManager.loginVendedor(body.correo)
     if(cliente == undefined && vendedor == undefined){
-      res.status(401).send({
+      res.status(200).send({
         success: false,
         message: "No hay ningún usuario con el correo"
       })
@@ -438,12 +439,12 @@ async (req, res) => {
         return;
       }
     }
-    res.status(401).send({
+    res.status(200).send({
       success: false,
       message: "La contraseña es incorrecta"
     })
   }catch(error){
-    res.status(500).send({
+    res.status(200).send({
       success: false,
       message: error
     })

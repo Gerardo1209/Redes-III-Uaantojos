@@ -18,7 +18,7 @@ router.put(
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(400).json({ success: false, err: errors });
+        res.status(200).json({ success: false, err: errors });
         return;
       }
       let body = req.body;
@@ -33,7 +33,7 @@ router.put(
         if (vendedores.length > 0) {
           //Revisa que el correo no este repetido
           if (vendedores.find((vendedor) => vendedor.correo == body.correo)) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "El correo ya esta en uso",
             });
@@ -48,7 +48,7 @@ router.put(
           //Revisa que el correo no este repetido
           let cmpCliente = await clientes.find((cliente) => cliente.correo == body.correo)
           if (cmpCliente != undefined && cmpCliente.correo == body.correo && cmpCliente.id != body.id) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "El correo ya esta en uso",
             });
@@ -59,27 +59,27 @@ router.put(
           )){
             res.status(200).send({ success: true });
           }else{
-            res.status(500).send({
+            res.status(200).send({
                 success: false,
                 message: "Hubo un error al actualizar el cliente",
               });
               return;
           }
         }else{
-            res.status(500).send({
+            res.status(200).send({
                 success: false,
                 message: "No hay clientes",
               });
               return;
         }
       } else {
-        res.status(500).send({
+        res.status(200).send({
           success: false,
           message: "Ha ocurrido un error al buscar el archivo",
         });
       }
     } catch (error) {
-      res.status(500).send({
+      res.status(200).send({
         success: false,
         message: error.message,
       });
@@ -111,7 +111,7 @@ router.put(
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(400).json({ success: false, err: errors });
+        res.status(200).json({ success: false, err: errors });
         return;
       }
       let body = req.body;
@@ -125,7 +125,7 @@ router.put(
         if (clientes.length > 0) {
           //Revisa que el correo no este repetido
           if (clientes.find((cliente) => cliente.correo == body.correo)) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "El correo ya esta en uso",
             });
@@ -139,7 +139,7 @@ router.put(
           //Revisa que el correo no este repetido
           let cmpVendedor = await vendedores.find((vendedor) => vendedor.correo == body.correo)
           if (cmpVendedor != undefined && cmpVendedor.correo == body.correo && cmpVendedor.id != body.id) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "El correo ya esta en uso",
             });
@@ -151,27 +151,27 @@ router.put(
           )){
             res.status(200).send({ success: true });
           }else{
-            res.status(500).send({
+            res.status(200).send({
                 success: false,
                 message: "Hubo un error al actualizar el vendedor",
               });
               return;
           }
         }else{
-            res.status(500).send({
+            res.status(200).send({
                 success: false,
                 message: "No hay usuarios",
               });
               return;
         }
       } else {
-        res.status(500).send({
+        res.status(200).send({
           success: false,
           message: "Ha ocurrido un error al buscar el archivo",
         });
       }
     } catch (error) {
-      res.status(500).send({
+      res.status(200).send({
         success: false,
         message: error.message,
       });
@@ -192,7 +192,7 @@ router.put(
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(400).json({ success: false, err: errors });
+        res.status(200).json({ success: false, err: errors });
         return;
       }
       let body = req.body;
@@ -205,7 +205,7 @@ router.put(
         if (vendedores.length > 0) {
           //Revisa que el correo no este repetido
           if(body.cantidad < 0){
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: "La cantidad no puede ser menor a cero",
             });
@@ -216,27 +216,27 @@ router.put(
           )){
             res.status(200).send({ success: true });
           }else{
-            res.status(500).send({
+            res.status(200).send({
                 success: false,
                 message: "Hubo un error al actualizar el producto",
               });
               return;
           }
         }else{
-            res.status(500).send({
+            res.status(200).send({
                 success: false,
                 message: "No hay productos",
               });
               return;
         }
       } else {
-        res.status(500).send({
+        res.status(200).send({
           success: false,
           message: "Ha ocurrido un error al buscar el archivo",
         });
       }
     } catch (error) {
-      res.status(500).send({
+      res.status(200).send({
         success: false,
         message: error.message,
       });

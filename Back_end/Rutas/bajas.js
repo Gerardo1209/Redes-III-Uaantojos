@@ -13,7 +13,7 @@ router.delete(
         try {
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
-              res.status(400).json({ success: false, err: errors });
+              res.status(200).json({ success: false, err: errors });
               return;
             }
             let body = req.body;
@@ -30,27 +30,27 @@ router.delete(
                 )){
                   res.status(200).send({ success: true });
                 }else{
-                  res.status(500).send({
+                  res.status(200).send({
                       success: false,
                       message: "Hubo un error al eliminar el producto",
                     });
                     return;
                 }
               }else{
-                  res.status(500).send({
+                  res.status(200).send({
                       success: false,
                       message: "No hay productos",
                     });
                     return;
               }
             } else {
-              res.status(500).send({
+              res.status(200).send({
                 success: false,
                 message: "Ha ocurrido un error al buscar el archivo",
               });
             }
           } catch (error) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: error.message,
             });
@@ -67,7 +67,7 @@ router.delete(
         try {
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
-              res.status(400).json({ success: false, err: errors });
+              res.status(200).json({ success: false, err: errors });
               return;
             }
             let body = req.body;
@@ -83,27 +83,27 @@ router.delete(
                 )){
                   res.status(200).send({ success: true });
                 }else{
-                  res.status(500).send({
+                  res.status(200).send({
                       success: false,
                       message: "Hubo un error al eliminar la venta",
                     });
                     return;
                 }
               }else{
-                  res.status(500).send({
+                  res.status(200).send({
                       success: false,
                       message: "No hay ventas",
                     });
                     return;
               }
             } else {
-              res.status(500).send({
+              res.status(200).send({
                 success: false,
                 message: "Ha ocurrido un error al buscar el archivo",
               });
             }
           } catch (error) {
-            res.status(500).send({
+            res.status(200).send({
               success: false,
               message: error.message,
             });
