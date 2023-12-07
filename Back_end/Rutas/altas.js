@@ -96,7 +96,6 @@ router.post(
     body("nombre").notEmpty().isString(),
     body("primape").notEmpty().isString(),
     body("segape").notEmpty().isString(),
-    body("ubicacion").notEmpty().isString(),
   ],
   async (req, res) => {
     try {
@@ -237,7 +236,7 @@ router.post(
           precio: parseFloat(body.precio),
           descripcion: body.descripcion,
           idVendedor: parseInt(body.idVendedor),
-          urlImagen: body.urlImagen,
+          imagen: body.urlImagen,
           baja: false
         });
         //Se escribe y se alamacena
