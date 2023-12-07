@@ -82,7 +82,7 @@ async function loginCliente(correo) {
   }
 }
 async function direccion(idVendedor) {
-  const file = ruta + "/data1/vendedor.json";
+  const file = ruta + "/data2/direccion.json";
   try {
     let data = await fs.readFile(file);
     data = decrypt(data).toString();

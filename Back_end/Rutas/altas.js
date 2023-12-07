@@ -98,7 +98,7 @@ router.post(
     body("segape").notEmpty().isString(),
     body("edificio").notEmpty().isString(),
     body('campus').notEmpty().isString(),
-    body('saon').notEmpty().isString()
+    body('salon').notEmpty().isString()
   ],
   async (req, res) => {
     try {
