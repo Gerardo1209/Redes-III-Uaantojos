@@ -61,7 +61,7 @@ router.delete(
   router.delete(
     "/venta",
     [
-      body("idVenta").notEmpty().isInt(),
+      body("idVenta").notEmpty().isInt()
     ],
     async (req, res) => {
         try {

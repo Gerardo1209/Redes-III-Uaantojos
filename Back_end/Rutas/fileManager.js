@@ -370,7 +370,7 @@ async function bajaVenta(id) {
   const detalleFile = ruta + "/data1/detalle.json";
   try {
     //Eliminar detalles
-    let detalledata = await fs.readFile(detalleFile, "utf-8");
+    let detalledata = await fs.readFile(detalleFile);
     detalledata = decrypt(detalledata).toString();
     let detalles = JSON.parse(detalledata);
     if (detalles.length == 0) return false;

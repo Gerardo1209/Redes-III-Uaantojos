@@ -9,7 +9,6 @@ router.get('/vendedores', async (req, res) => {
         for (let i = 0; i < vendedores.length; i++) {
             const vendedor = vendedores[i];
             let direccion = await fileManager.direccion(vendedor.id)
-            console.log(direccion)
             sendVend.push({
                 id: vendedor.id,
                 nombreComercial: vendedor.nombreComercial,
