@@ -96,6 +96,9 @@ router.post(
     body("nombre").notEmpty().isString(),
     body("primape").notEmpty().isString(),
     body("segape").notEmpty().isString(),
+    body("edificio").notEmpty().isString(),
+    body('campus').notEmpty().isString(),
+    body('saon').notEmpty().isString()
   ],
   async (req, res) => {
     try {
@@ -107,8 +110,9 @@ router.post(
       let body = req.body;
       let fileCte = fileManager.ruta + "/data2/cliente.json";
       let file = fileManager.ruta + "/data1/vendedor.json";
+      let fileDir = fileManager.ruta + "/data2/direccion.json";
       //Comprobar que el archivo existe, si no lo crea vacio
-      if (await fileManager.checkFileExist(file) && await fileManager.checkFileExist(fileCte)) {
+      if (await fileManager.checkFileExist(file) && await fileManager.checkFileExist(fileCte) && await fileManager.checkFileExist(fileDir)) {
         //Comprueba que no haya clientes con el mismo correo
         let dataCte = await fs.readFile(fileCte);
         dataCte = fileManager.decrypt(dataCte).toString();
@@ -161,6 +165,17 @@ router.post(
         });
         //Se escribe y se alamacena
         await fs.writeFile(file, fileManager.encrypt(Buffer.from(JSON.stringify(vendedores))));
+        //Se guarda la direccion
+        let dataDir = await fs.readFile(fileDir);
+        dataDir = fileManager.decrypt(dataDir).toString();
+        let direcciones = JSON.parse(dataDir);
+        direcciones.push({
+          edificio: body.edificio,
+          campus: body.campus,
+          salon: body.salon,
+          idVendedor: maxId + 1
+        });
+        await fs.writeFile(fileDir, fileManager.encrypt(Buffer.from(JSON.stringify(direcciones))));
         res.status(201).send({ success: true });
       } else {
         res.status(200).send({

@@ -81,6 +81,21 @@ async function loginCliente(correo) {
     return undefined;
   }
 }
+async function direccion(idVendedor) {
+  const file = ruta + "/data1/vendedor.json";
+  try {
+    let data = await fs.readFile(file);
+    data = decrypt(data).toString();
+    let direcciones = JSON.parse(data);
+    if (direcciones.length == 0) return undefined;
+    let direccion = await direcciones.find(
+      (dirBuscar) => dirBuscar.idVendedor == idVendedor
+    );
+    return direccion;
+  } catch (error) {
+    return undefined;
+  }
+}
 async function vendedores() {
   const file = ruta + "/data1/vendedor.json";
   try {
@@ -404,4 +419,5 @@ module.exports = {
   loginCliente,
   encrypt,
   decrypt,
+  direccion
 };

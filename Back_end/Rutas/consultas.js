@@ -31,13 +31,15 @@ router.get('/vendedores', async (req, res) => {
 
 router.get('/vendedor/:idVendedor', async (req, res) => {
     let vendedor = await fileManager.vendedor(req.params.idVendedor)
+    let direccion = await fileManager.direccion(req.params.idVendedor)
     if(vendedor != undefined){
         let envVend = {
             nombreComercial: vendedor.nombreComercial,
             correo: vendedor.correo,
             nombre: vendedor.nombre,
             ubicacion: vendedor.ubicacion,
-            activo: vendedor.activo
+            activo: vendedor.activo,
+            direccion: direccion
         }
         res.status(200).send({
             success: true,
