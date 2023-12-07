@@ -297,6 +297,7 @@ async function updateProducto(
       descripcion: descripcion,
       idVendedor: producto.idVendedor,
       baja: baja,
+      imagen: producto.imagen
     };
     await fs.writeFile(file, encrypt(Buffer.from(JSON.stringify(productos))));
     return true;
