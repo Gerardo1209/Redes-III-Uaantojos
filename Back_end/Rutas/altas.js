@@ -154,7 +154,10 @@ router.post(
           nombre: body.nombre,
           primape: body.primape,
           segape: body.segape,
-          ubicacion: "",
+          ubicacion: {
+            latitud: 21.914501499466212,
+            longitud: -102.31444343851987
+          },
           activo: false
         });
         //Se escribe y se alamacena
@@ -183,6 +186,7 @@ router.post(
     body("cantidad").notEmpty().isInt(),
     body("precio").notEmpty().isFloat(),
     body("descripcion").notEmpty().isString(),
+    body("urlImagen").notEmpty().isString()
   ],
   async (req, res) => {
     try {
@@ -233,6 +237,7 @@ router.post(
           precio: parseFloat(body.precio),
           descripcion: body.descripcion,
           idVendedor: parseInt(body.idVendedor),
+          urlImagen: body.urlImagen,
           baja: false
         });
         //Se escribe y se alamacena
