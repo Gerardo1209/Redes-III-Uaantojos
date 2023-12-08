@@ -115,7 +115,20 @@ router.get('/cliente/:idCliente/ventas', async (req, res) => {
         })
     }
 })
-
+router.get('/cliente/:idCliente', async (req, res) => {
+    let cliente = await fileManager.cliente(req.params.idCliente)
+    if(cliente){
+        res.status(200).send({
+            success: true,
+            cliente: cliente
+        })
+    }else{
+        res.status(200).send({
+            success: false,
+            message: "No existe el cliente"
+        })
+    }
+})
 router.get('/vendedor/:idVendedor/ventas', async (req, res) => {
     let ventas = await fileManager.ventaVendedor(req.params.idVendedor)
     if(ventas.length != 0){

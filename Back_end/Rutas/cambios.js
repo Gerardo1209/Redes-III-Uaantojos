@@ -147,7 +147,7 @@ router.put(
           }
           let ubicacion = JSON.parse(body.ubicacion)
           if(await fileManager.updateVendedor(
-            parseInt(body.id), body.nombreComercial, body.correo, body.contrasena, body.nombre, body.primape, body.segape, ubicacion, (body.activo=="true" ? true : false)
+            parseInt(body.id), body.nombreComercial, body.correo, body.contrasena, body.nombre, body.primape, body.segape, ubicacion, body.activo
           )){
             res.status(200).send({ success: true });
           }else{

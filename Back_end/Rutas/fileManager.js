@@ -354,7 +354,7 @@ async function updateVendedor(
       correo: correo,
       contrasena: contrasena,
       nombre: nombre,
-      pirmape: primape,
+      primape: primape,
       segape: segape,
       ubicacion: ubicacion,
       activo: activo
