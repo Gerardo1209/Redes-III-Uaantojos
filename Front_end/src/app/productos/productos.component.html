@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Productos</h2>
+    <div class="input-group rounded">
+      <input
+        type="search"
+        class="form-control rounded"
+        placeholder="Buscador"
+        aria-label="Search"
+        aria-describedby="search-addon"
+        id="termino"
+      />
+      <span class="input-group-text border-0" id="search-addon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </span>
+    </div>
+    <div class="row justify-content-center">
+        <div *ngFor="let p of mostrarProductos" class="my-3 col col-9 col-sm-6 col-lg-4 col-xl-3 mb-3 mb-sm-0">
+            <div class="card" style="height: 100%;">
+              <img src="{{ p.imagen }}" class="card-img-top"
+              alt="..."
+              style="width: 100%; height: 250px; object-fit: cover;">
+              <div class="card-body">
+              <h5 class="card-title">{{p.nombre}}</h5>
+              <p class="card-text">{{p.descripcion}}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cantidad disponible: {{p.cantidad}}</li>
+              <li class="list-group-item">Precio: ${{p.precio}}</li>
+              <li class="list-group-item"><a routerLink="/vendedor/{{p.idVendedor}}" >Vendido por: {{p.vendedor}}</a></li>
+              </ul>
+              <div class="card-body" style="width: 100%;">
+                  <button [disabled]="p.cantidad<=0" (click)="agregarCarrito(p.id)" class="btn btn-outline-primary justify-content-center" style="width: 100%;"><i class="fa-solid fa-cart-shopping"></i></button>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="button-izq">
+      <button class="btn btn-primary p-3" routerLink="/menu_comprador">
+        <i class="fa-solid fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+</div>

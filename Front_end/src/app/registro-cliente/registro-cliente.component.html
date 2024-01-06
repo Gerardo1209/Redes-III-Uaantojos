@@ -1,0 +1,77 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Registro Cliente</h5>
+          <form [formGroup]="formUser" (ngSubmit)="registrar()">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                placeholder="Ingresa tu nombre"
+                formControlName="nombre"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Primer Apellido</label>
+              <input
+                type="text"
+                class="form-control"
+                id="primape"
+                placeholder="Ingresa tu primer apellido"
+                formControlName="primape"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Segundo Apellido</label>
+              <input
+                type="text"
+                class="form-control"
+                id="segape"
+                placeholder="Ingresa tu segundo apellido"
+                formControlName="segape"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="nombre@ejemplo.com"
+                formControlName="correo"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="contraseña" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="contraseña"
+                placeholder="Ingresa tu contraseña"
+                formControlName="contrasena"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="confirmar-contraseña" class="form-label"
+                >Confirmar contraseña</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="confirmar-contraseña"
+                placeholder="Confirma tu contraseña"
+                formControlName="confirmar"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="formUser.invalid">Registrarse</button>
+            <button type="button" class="btn btn-secondary" routerLink="/seleccion_usuario">Regresar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

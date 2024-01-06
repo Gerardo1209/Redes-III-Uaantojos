@@ -1,0 +1,227 @@
+.layout {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/antojos.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#logo {
+    width: 20%;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar img {
+    display: block;
+    margin: 0 auto;
+}
+
+.content {
+    height: 50vh;
+    margin: 0;
+    overflow: hidden;
+    /*background: url(assets/images/mapa-blur.jpg) no-repeat center;*/
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.texto {
+    padding: 40px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+}
+
+.containerTransparente {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.containerTransparente img {
+    vertical-align: middle;
+    width: 100%;
+}
+
+.imgConocenos {
+    height: 100%;
+}
+
+.containerTransparente .contentTransparente {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+}
+
+.contentTransparente {
+    height: 100%;
+    text-align: center;
+}
+
+.contenedorTexto {
+    padding: 50px;
+    text-align: center;
+}
+
+.imgConocenos {
+    width: 100%;
+}
+
+#imgConocenos {
+    height: 80ch
+}
+
+
+#titImagenTransparente {
+    font-size: 60px;
+    color: #00056D;
+    text-align: center;
+}
+
+#txtImagenTransparente {
+    font-size: 30px;
+    padding: 40px;
+    color: #00056D;
+    text-align: justify;
+    justify-content: center;
+}
+
+.pie-pagina {
+    width: 100%;
+    background-color: #e3f2fd;
+}
+
+.pie-pagina .grupo-1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+}
+
+.pie-pagina .grupo-1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-pagina .grupo-1 .box figure img {
+    width: 250px;
+}
+
+.pie-pagina .grupo-1 .box h2 {
+    color: #00056D;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .box p {
+    color: #00056D;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+    color: aqua;
+}
+
+.pie-pagina .grupo-2 {
+    background-color: #0a1a2a;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.pie-pagina .grupo-2 small {
+    font-size: 15px;
+}
+
+@media screen and (max-width:800px) {
+    .pie-pagina .grupo-1 {
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+    }
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+@media (max-width:1400px) {
+    #card {
+        width: 50%;
+    }
+
+    .contenedorTexto {
+        width: 80%;
+    }
+}
+
+@media (max-width:992px) {
+    #card {
+        width: 100%;
+    }
+
+    .contenedorTexto {
+        width: 100%;
+    }
+}
+
+.imagen-circular {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.imagen-circular img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}

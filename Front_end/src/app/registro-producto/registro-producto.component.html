@@ -1,0 +1,88 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Registro del Producto</h5>
+          <form [formGroup]="formGroup">
+            <div class="mb-3">
+              <p-dropdown
+                inputId="options"
+                (onChange)="changeListenerProd($event)"
+                (onClear)="limpiarFormulario()"
+                styleClass="w-100"
+                [options]="listProd"
+                formControlName="productos"
+                optionLabel="nombre"
+                filterBy="nombre"
+                [showClear]="true"
+                placeholder="Seleccione un producto"
+              ></p-dropdown>
+            </div>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="nombre"
+                placeholder="Ingresa el nombre del producto a vender"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cantidad" class="form-label">Cantidad</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cantidad"
+                formControlName="cantidad"
+                placeholder="Ingresa la cantidad de productos a vender"
+              />
+            </div>
+            <label for="nombre" class="form-label">Precio</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">$</span>
+              <input
+                type="number"
+                step=".01"
+                class="form-control"
+                formControlName="precio"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Descripción del producto</label
+              >
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                formControlName="descripcion"
+              ></textarea>
+            </div>
+            <button
+              id="btnReg"
+              type="submit"
+              class="btn btn-primary"
+              (click)="getPhoto()"
+              [disabled]="formGroup.invalid"
+            ><i class="fa-solid fa-book"></i>
+              Registrar
+              <i class="fa-solid fa-book"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-izq">
+  <button
+
+    class="btn btn-primary p-3"
+    type="submit"
+    routerLink="/menu_vendedor"
+  >
+    <i class="fa-solid fa-arrow-left"></i> Regresar
+  </button>
+</div>

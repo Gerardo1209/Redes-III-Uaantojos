@@ -1,0 +1,42 @@
+<div class="container text-center my-2">
+<h1>Entró a la sección activa, será visible en el mapa de los compradores</h1>
+</div>
+
+<div class="container my-5">
+  <h2 class="text-center">Apartados</h2>
+  <br>
+  <table *ngIf="ventas.length!=0 else nopedido" class="table table-striped">
+      <thead>
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Fecha</th>
+              <th *ngIf="!usuario.nombreComercial" scope="col">Vendedor</th>
+              <th *ngIf="usuario.nombreComercial" scope="col">Cliente</th>
+              <th scpre="col">Detalles</th>
+              <th *ngIf="usuario.nombreComercial" scpre="col">Cancelar</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let v of ventas">
+              <th scope="row">{{v.id}}</th>
+              <td>{{v.fecha | date}}</td>
+              <td *ngIf="!usuario.nombreComercial">{{ v.nombreComercial }}</td>
+              <td *ngIf="usuario.nombreComercial" scope="col">{{ v.cliente }}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let d of v.detalles">{{d.cantidad}} - {{d.producto}} - ${{ d.precio * d.cantidad  }}</li>
+                </ul>
+              </td>
+              <td *ngIf="usuario.nombreComercial"><button class="btn" (click)="eliminarProd(v.id)"><i class="fa-solid fa-trash"></i></button></td>
+          </tr>
+          </tbody>
+  </table>
+  <ng-template #nopedido>
+    <h1>No hay apartados.</h1>
+  </ng-template>
+  <div class="button-izq">
+    <button class="btn btn-primary p-3" type="submit" (click)="regresar()">
+      <i class="fa-solid fa-arrow-left"></i> Regresar
+    </button>
+  </div>
+</div>

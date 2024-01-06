@@ -1,0 +1,61 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa-solid fa-user"></i> Editar Información</h5>
+                    <form [formGroup]="formUser">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" formControlName="nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Primer Apellido</label>
+                            <input type="text" class="form-control" id="nombre"
+                                placeholder="Ingresa tu primer apellido" formControlName="primape">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Segundo Apellido</label>
+                            <input type="text" class="form-control" id="nombre"
+                                placeholder="Ingresa tu segundo apellido" formControlName="segape">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" formControlName="correo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contraseña" class="form-label">Contraseña</label>
+                            <div class="col-auto">
+                                <input type="password" id="inputPassword6" class="form-control"
+                                    aria-describedby="passwordHelpInline" formControlName="contrasena">
+                            </div>
+                            <div class="col-auto">
+                                <span id="passwordHelpInline" class="form-text">
+                                    Must be 8-20 characters long.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmar-contraseña" class="form-label">Confirmar contraseña</label>
+                            <div class="col-auto">
+                                <input type="password" id="inputPassword6" class="form-control"
+                                    aria-describedby="passwordHelpInline" formControlName="confirmar">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="actualizarCte()" [disabled]="formUser.invalid">Editar</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<button
+
+                class="btn btn-primary button-izq"
+                type="submit"
+                routerLink="/menu_comprador"
+              >
+                <i class="fa-solid fa-arrow-left"></i> Regresar
+              </button>

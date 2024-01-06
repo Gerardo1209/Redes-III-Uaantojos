@@ -1,0 +1,39 @@
+<div class="container-general">
+    <h2>¡Bienvenido <b>Comprador!</b></h2>
+    <div class="container">
+        <div class="menu row-cols-xl-4 row-cols-md-2 row-cols-sm-2 row-cols-1 justify-content-around">
+            <button class="col" routerLink="/mapa">
+                <div class="card">
+                    <img src="assets/images/maps.jpg" alt="Mapas" class="image">
+                    <div class="overlay">Mapa</div>
+                </div>
+            </button>
+
+            <button class="col" routerLink="/vendedores">
+                <div class="card" >
+                    <img src="assets/images/vendedor.jpg" alt="Vendedores" class="image">
+                    <div class="overlay">Vendedores</div>
+                </div>
+            </button>
+
+            <button class="col" routerLink="/producto">
+                <div class="card" >
+                    <img src="assets/images/antojos.jpg" alt="Productos" class="image">
+                    <div class="overlay">Productos</div>
+                </div>
+            </button>
+
+            <button class="col" routerLink="/pedidos">
+                <div class="card">
+                    <img src="assets/images/compras.jpg" alt="Compras" class="image">
+                    <div class="overlay">Apartados</div>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a (click)="salir()" class="boton-circular-izq"><i class="fa-solid fa-right-from-bracket"></i></a>
+    <a routerLink="/carrito" class="boton-circular-der"><i class="fa-solid fa-cart-shopping"></i></a>
+</div>

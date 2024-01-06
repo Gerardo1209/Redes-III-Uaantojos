@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="login__content">
+    <img src="assets/images/antojos.jpg" alt="login image" class="login__img" />
+
+    <form class="login__form" [formGroup]="formUser" (ngSubmit)="login()">
+      <img src="assets/images/logo-uaantojos.png" />
+
+      <div>
+        <div class="login__inputs">
+          <div>
+            <label for="input-email" class="login__label"><b>Correo</b></label>
+            <input
+              type="email"
+              placeholder=""
+              class="login__input"
+              id="correo"
+              formControlName="correo"
+
+            />
+          </div>
+
+          <div>
+            <label for="input-pass" class="login__label"
+              ><b>Contraseña</b></label
+            >
+
+            <div class="login__box">
+              <input
+                type="password"
+                placeholder=""
+                class="login__input"
+                id="input-pass"
+                formControlName="contrasena"
+              />
+              <i class="ri-eye-off-line login__eye" id="input-icon"></i>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="login__buttons">
+          <button type="submit" class="login__button" [disabled]="formUser.invalid">Ingresar</button>
+          <button type="button" class="login__button" routerLink="/seleccion_usuario">Registrarme</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

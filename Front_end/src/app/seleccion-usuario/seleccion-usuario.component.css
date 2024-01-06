@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+}
+p{
+    text-size-adjust: 50px;
+}
+button{
+    margin-right: 15px;
+}
+.contenedor2{
+    display: flex;
+    justify-content: center;
+}
+body{
+    background-color: hsl(208, 97%, 85%);
+}
+.container{
+    padding-top: 50px;
+}
+.card-body{
+    padding-top: 55px;
+}
