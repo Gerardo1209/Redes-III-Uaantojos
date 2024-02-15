@@ -6,7 +6,7 @@ Integrantes:
 - Carlos Daniel De Lira Sala
 - Francisco de Jesús Mendez Lara
 
-Colaboradores anteriores
+Colaboradores anteriores:
 - Maricela Jacqueline Renovato Ramírez
 - Sandra Olimpia Estrella Prieto García
 
